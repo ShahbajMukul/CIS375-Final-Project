@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Process-Based Estimation Assistant</title>
+    <script src="scripts/script.js"></script>
+</head>
+<body>
+    <header>
+        <img src="imgs/umdearborn_horizontal_white_nobg.png" alt="UM-Dearborn">
+        <h3>Process-Based Estimation Assistant</h3>
+    </header>
+    <div class="flex-container">
+      <div class="button-container">
+        <div class="labor-rate-box">
+          <div class="label">Labor Rate</div>
+          <div class="input-cell">
+            <label>$</label>
+            <input type="number" id="costInputCell" placeholder="Labor Rate">
+          </div>
+        </div>
+        
+        <button id="addRowBtn" onclick="addRow()">Add Row</button>
+        <button id="removeLastRowBtn" onclick="removeLastRow()">Remove Last Row</button>
+        <button id="clearRowsBtn" onclick="clearRows()">Clear All Rows</button>
+        <button id="calculateBtn" onclick="calculateCost()">Calculate Cost</button>
+        <button id="printBtn" onclick="window.print()">Print</button>
+
+      </div>
+      <div class="table-container">
+        <table id="headerTable">
+          <thead>
+              <tr style="background-color: lightgrey">
+                <td class="nameInputColumn">ACTIVITY</td>
+                <td class="ccColumn">CC</td>
+                <td class="planningColumn">PLANNING</td>
+                <td class="riskColumn">RISK ANALYSIS</td>
+                <td class="col4" colspan="2">ENGINEERING</td>
+                <td class="col5" colspan="2">RELEASE</td>
+                <td class="ceColumn">CE</td>
+                <td class="totalColumn" id="totals-header">TOTALS</td>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td>Task →</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="numberInputColumn">Analysis</td>
+                <td class="numberInputColumn">Design</td>
+                <td class="numberInputColumn">Code</td>
+                <td class="numberInputColumn">Test</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Function ↓</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+          </tbody>
+          </table>
+  
+          <table id="inputTable">
+          <tbody>
+              <!-- User-created rows will be inserted here -->
+          </tbody>
+          </table>
+  
+          <table id="calculationTable">
+          <tbody>
+              <tr>
+                <td class="nameInputColumn">totals</td>
+                <td class="ccColumn"><input type="number" step="0.01" id="ccInputCell" title="Enter a value for Customer Care (e.g. 0.5)" placeholder="i.e. 0.5" oninput="updateTables(this)"></td>
+                <td class="planningColumn"><input type="number" step="0.01" id="planningInputCell" title="Enter a value for Planning (e.g. 0.5)" placeholder="i.e. 0.5" oninput="updateTables(this)"></td>
+                <td class="riskColumn"><input type="number" step="0.01" id="riskanalysisInputCell" title="Enter a value for Risk Analysis (e.g. 0.5)" placeholder="i.e. 0.5" oninput="updateTables(this)"></td>
+                <td class="numberInputColumn" id="analysisTotalCell"></td>
+                <td class="numberInputColumn" id="designTotalCell"></td>
+                <td class="numberInputColumn" id="codeTotalCell"></td>
+                <td class="numberInputColumn" id="testTotalCell"></td>
+                <td class="ceColumn"></td>
+                <td class="totalColumn" id="totalsTotalCell"></td>
+              </tr>
+              <tr>
+                <td class="nameInputColumn">% effort</td>
+                <td class="ccColumn" id="ccPercentCell"></td>
+                <td class="planningColumn" id="planningPercentCell"></td>
+                <td class="riskColumn" id="riskanalysisPercentCell"></td>
+                <td class="numberInputColumn" id="analysisPercentCell"></td>
+                <td class="numberInputColumn" id="designPercentCell"></td>
+                <td class="numberInputColumn" id="codePercentCell"></td>
+                <td class="numberInputColumn" id="testPercentCell"></td>
+                <td class="ceColumn"></td>
+                <td class="totalColumn"></td>
+              </tr>
+              <tr>
+                <td class="nameInputColumn">Cost</td>
+                <td class="ccColumn" id="ccCostCell"></td>
+                <td class="planningColumn" id="planningCostCell"></td>
+                <td class="riskColumn" id="riskanalysisCostCell"></td>
+                <td class="numberInputColumn" id="analysisCostCell"></td>
+                <td class="numberInputColumn" id="designCostCell"></td>
+                <td class="numberInputColumn" id="codeCostCell"></td>
+                <td class="numberInputColumn" id="testCostCell"></td>
+                <td class="ceColumn"></td>
+                <td class="totalColumn" id="totalCostCell"></td>
+              </tr>
+          </tbody>
+          </table>
+      </div>
+    </div>
+    <footer>
+        <p>Created by Brandon Bailey, Ali Chowdhury, Darsh Patel, Shahbaj Mukul, and Andrew Schwartz</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,139 @@
+* {
+    font-family: "Open Sans",Arial,sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0;
+}
+
+header, footer {
+    color: white;
+    padding: 5px;
+    background-color: #00274C;
+}
+header img {
+    padding-top: 10px
+}
+
+footer {
+    text-align: center;
+    margin-top: auto;
+}
+header h3 {
+    background-color: #FFCB05;
+    padding: 10px;
+    color: black;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.labor-rate-box {
+    background-color: aliceblue;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.input-cell {
+    flex-grow: 1;
+    width: 5%;
+}
+
+button {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+table {
+    background-color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 3px solid #000000;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+/* Adjust the column sizing if necessary  */
+.col4, .col5, .nameInputColumn {
+    width: 20%;
+}
+.col6, .ccColumn, .ceColumn {
+    width: 5%;
+}
+.planningColumn, .riskColumn {
+    width: 10%;
+}
+.numberInputColumn {
+    width: 10%;
+}
+.totalColumn {
+    width: 10%;
+}
+
+
+input[type="text"] {
+    width: fit-content; /* Adjust the width to your preference */
+}
+
+input[type="number"] {
+    width: 100%;
+}
+
+
+.labor-rate-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-cell {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.label {
+  margin-bottom: 5px;
+}
+
+label {
+  margin-right: 5px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+#totals-header {
+  background-color: lightcoral;
+}
+
+.table-container {
+  width: 100%;
+}
+#headerTable, #inputTable, #calculationTable {
+  width: 100%;
+}

@@ -64,6 +64,9 @@ button {
     align-items: flex-start;
     padding: 20px;
 }
+.ccColumn {
+    width: 1%;
+}
 
 table {
     background-color: aliceblue;
@@ -71,6 +74,8 @@ table {
     border: 3px solid #000000;
     border-collapse: collapse;
     text-align: center;
+    table-layout: auto;
+    width: 100%;
 }
 
 /* Adjust the column sizing if necessary  */

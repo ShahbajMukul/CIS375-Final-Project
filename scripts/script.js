@@ -156,7 +156,7 @@ function addRow() {
     
     var ccCell = parseFloat(document.getElementById("ccInputCell").value) || 0;
     var planningCell = parseFloat(document.getElementById("planningInputCell").value) || 0;
-    var riskanalysisCell = parseFloat(document.getElementById("riskanalysisInputCell").value) || 0;
+    var riskAnalysisCell = parseFloat(document.getElementById("riskAnalysisInputCell").value) || 0;
     var analysisCell = parseFloat(document.getElementById("analysisTotalCell").innerHTML) || 0;
     var designCell = parseFloat(document.getElementById("designTotalCell").innerHTML) || 0;
     var codeCell = parseFloat(document.getElementById("codeTotalCell").innerHTML) || 0;
@@ -164,18 +164,19 @@ function addRow() {
     var total = 0;
 
     // Summing up values from all columns
-    total = ccCell + planningCell + riskanalysisCell + analysisCell + designCell + codeCell + testCell;
+    total = ccCell + planningCell + riskAnalysisCell + analysisCell + designCell + codeCell + testCell;
     
 
     // Displaying the total in the last cell of the current row
     var totalCell = document.getElementById("totalsTotalCell");
     totalCell.innerHTML = total.toFixed(2);
+    calculateCost(); // auto calc
   }
 
   function calculatePercentEffort(){
     var ccValue = parseFloat(document.getElementById("ccInputCell").value) || 0;
     var planningValue = parseFloat(document.getElementById("planningInputCell").value) || 0;
-    var riskanalysisValue = parseFloat(document.getElementById("riskanalysisInputCell").value) || 0;
+    var riskAnalysisValue = parseFloat(document.getElementById("riskAnalysisInputCell").value) || 0;
     var analysisValue = parseFloat(document.getElementById("analysisTotalCell").innerHTML) || 0;
     var designValue = parseFloat(document.getElementById("designTotalCell").innerHTML) || 0; 
     var codeValue = parseFloat(document.getElementById("codeTotalCell").innerHTML) || 0;
@@ -183,7 +184,7 @@ function addRow() {
     var totalValue = parseFloat(document.getElementById("totalsTotalCell").innerHTML) || 0;
     var ccPercent = 0;
     var planningPercent = 0;
-    var riskanalysisPercent = 0;
+    var riskAnalysisPercent = 0;
     var analysisPercent = 0;
     var designPercent = 0;
     var codePercent = 0;
@@ -192,7 +193,7 @@ function addRow() {
     // Calculate percent effort for each column
     ccPercent = ccValue / totalValue * 100;
     planningPercent = planningValue / totalValue * 100;
-    riskanalysisPercent = riskanalysisValue / totalValue * 100;
+    riskAnalysisPercent = riskAnalysisValue / totalValue * 100;
     analysisPercent = analysisValue / totalValue * 100;
     designPercent = designValue / totalValue * 100;
     codePercent = codeValue / totalValue * 100;
@@ -206,8 +207,8 @@ function addRow() {
     var planningPercentCell = document.getElementById("planningPercentCell");
     planningPercentCell.innerHTML = planningPercent.toFixed(2) + "%";
 
-    var riskanalysisPercentCell = document.getElementById("riskanalysisPercentCell");
-    riskanalysisPercentCell.innerHTML = riskanalysisPercent.toFixed(2) + "%";
+    var riskAnalysisPercentCell = document.getElementById("riskAnalysisPercentCell");
+    riskAnalysisPercentCell.innerHTML = riskAnalysisPercent.toFixed(2) + "%";
 
     var analysisPercentCell = document.getElementById("analysisPercentCell");
     analysisPercentCell.innerHTML = analysisPercent.toFixed(2) + "%";
@@ -225,7 +226,7 @@ function addRow() {
   function calculateCost(){
     var ccValue = parseFloat(document.getElementById("ccInputCell").value) || 0;
     var planningValue = parseFloat(document.getElementById("planningInputCell").value) || 0;
-    var riskanalysisValue = parseFloat(document.getElementById("riskanalysisInputCell").value) || 0;
+    var riskAnalysisValue = parseFloat(document.getElementById("riskAnalysisInputCell").value) || 0;
     var analysisValue = parseFloat(document.getElementById("analysisTotalCell").innerHTML) || 0;
     var designValue = parseFloat(document.getElementById("designTotalCell").innerHTML) || 0; 
     var codeValue = parseFloat(document.getElementById("codeTotalCell").innerHTML) || 0;
@@ -238,7 +239,7 @@ function addRow() {
     // Calculate cost for each column
     var ccCost = ccValue * cost;
     var planningCost = planningValue * cost;
-    var riskanalysisCost = riskanalysisValue * cost;
+    var riskAnalysisCost = riskAnalysisValue * cost;
     var analysisCost = analysisValue * cost;
     var designCost = designValue * cost;
     var codeCost = codeValue * cost;
@@ -252,8 +253,8 @@ function addRow() {
     var planningCostCell = document.getElementById("planningCostCell");
     planningCostCell.innerHTML = "$" + planningCost.toFixed(2);
 
-    var riskanalysisCostCell = document.getElementById("riskanalysisCostCell");
-    riskanalysisCostCell.innerHTML = "$" + riskanalysisCost.toFixed(2);
+    var riskAnalysisCostCell = document.getElementById("riskAnalysisCostCell");
+    riskAnalysisCostCell.innerHTML = "$" + riskAnalysisCost.toFixed(2);
 
     var analysisCostCell = document.getElementById("analysisCostCell");
     analysisCostCell.innerHTML = "$" + analysisCost.toFixed(2);
@@ -283,7 +284,7 @@ function addRow() {
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("ccInputCell").value = "";
     document.getElementById("planningInputCell").value = "";
-    document.getElementById("riskanalysisInputCell").value = "";
+    document.getElementById("riskAnalysisInputCell").value = "";
     document.getElementById("costInputCell").value = "";
   });
 

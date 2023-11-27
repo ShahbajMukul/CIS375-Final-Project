@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <img src="./umdearborn_horizontal_white_nobg.png" alt="UM-Dearborn">
+        <img src="img/umdearborn_horizontal_white_nobg.png" alt="UM-Dearborn">
         <h3>Process-Based Estimation Assistant</h3>
     </header>
     <div class="flex-container">
@@ -25,7 +25,7 @@
         <button id="addRowBtn" onclick="addRow()">Add Row</button>
         <button id="removeLastRowBtn" onclick="removeLastRow()">Remove Last Row</button>
         <button id="clearRowsBtn" onclick="clearRows()">Clear All Rows</button>
-        <button id="calculateBtn" onclick="calculateCost()">Calculate Cost</button>
+        <!--<button id="calculateBtn" onclick="calculateCost()">Calculate Cost</button> -->
         <button id="printBtn" onclick="window.print()">Print</button>
 
       </div>
@@ -45,7 +45,7 @@
           </thead>
           <tbody>
               <tr>
-                <td>Task →</td>
+                <td>Task → <br> Function ↓</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -56,24 +56,19 @@
                 <td></td>
                 <td></td>
               </tr>
-              <tr>
-                <td>Function ↓</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+
           </tbody>
           </table>
   
           <table id="inputTable">
           <tbody>
               <!-- User-created rows will be inserted here -->
+              <!-- initialize with a new row-->
+              <script>
+                window.onload = function(){
+                  addRow();
+                }
+              </script>
           </tbody>
           </table>
   
@@ -83,7 +78,7 @@
                 <td class="nameInputColumn">totals</td>
                 <td class="ccColumn"><input type="number" step="0.01" id="ccInputCell" title="Enter a value for Customer Care (e.g. 0.5)" placeholder="i.e. 0.5" oninput="updateTables(this)"></td>
                 <td class="planningColumn"><input type="number" step="0.01" id="planningInputCell" title="Enter a value for Planning (e.g. 0.5)" placeholder="i.e. 0.5" oninput="updateTables(this)"></td>
-                <td class="riskColumn"><input type="number" step="0.01" id="riskanalysisInputCell" title="Enter a value for Risk Analysis (e.g. 0.5)" placeholder="i.e. 0.5" oninput="updateTables(this)"></td>
+                <td class="riskColumn"><input type="number" step="0.01" id="riskAnalysisInputCell" title="Enter a value for Risk Analysis (e.g. 0.5)" placeholder="i.e. 0.5" oninput="updateTables(this)"></td>
                 <td class="numberInputColumn" id="analysisTotalCell"></td>
                 <td class="numberInputColumn" id="designTotalCell"></td>
                 <td class="numberInputColumn" id="codeTotalCell"></td>
@@ -107,7 +102,7 @@
                 <td class="nameInputColumn">Cost</td>
                 <td class="ccColumn" id="ccCostCell"></td>
                 <td class="planningColumn" id="planningCostCell"></td>
-                <td class="riskColumn" id="riskanalysisCostCell"></td>
+                <td class="riskColumn" id="riskAnalysisCostCell"></td>
                 <td class="numberInputColumn" id="analysisCostCell"></td>
                 <td class="numberInputColumn" id="designCostCell"></td>
                 <td class="numberInputColumn" id="codeCostCell"></td>

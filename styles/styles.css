@@ -18,6 +18,31 @@ header img {
     padding-top: 10px
 }
 
+
+#clearRowsBtn, #deleteBtn{
+    background-color: rgb(197, 58, 58);
+    color: white;
+    padding: 5px 10px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#addRowBtn{
+    background-color: rgb(58, 197, 123);
+    cursor: pointer;
+    margin-bottom: 35px; 
+}
+
+#addRowBtn:hover {
+    background-color: rgb(211, 166, 240);
+}
+
+#clearRowsBtn:hover, #deleteBtn:hover {
+    background-color: rgb(48, 10, 10);
+}
+
 footer {
     text-align: center;
     margin-top: auto;
@@ -65,39 +90,22 @@ button {
     padding: 20px;
 }
 .ccColumn {
-    width: 1%;
+    width: 15;
 }
 
 table {
     background-color: aliceblue;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: 3px solid #000000;
-    border-collapse: collapse;
     text-align: center;
-    table-layout: auto;
     width: 100%;
+    table-layout: fixed; /* Ensures consistent column widths */
+    border-collapse: collapse; /* Removes double borders */
 }
 
-/* Adjust the column sizing if necessary  */
-.col4, .col5, .nameInputColumn {
-    width: 20%;
-}
-.col6, .ccColumn, .ceColumn {
-    width: 5%;
-}
-.planningColumn, .riskColumn {
-    width: 10%;
-}
-.numberInputColumn {
-    width: 10%;
-}
-.totalColumn {
-    width: 10%;
-}
 
 
 input[type="text"] {
-    width: fit-content; /* Adjust the width to your preference */
+    width: fit-content; 
 }
 
 input[type="number"] {
@@ -124,12 +132,13 @@ label {
   margin-right: 5px;
 }
 
-table, th, td {
+table{
     border: 1px solid black;
 }
 th, td {
-  padding: 10px;
-  text-align: center;
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
 }
 
 #totals-header {
@@ -142,3 +151,17 @@ th, td {
 #headerTable, #inputTable, #calculationTable {
   width: 100%;
 }
+button {
+    padding: 5px 10px;
+}
+
+/* Column Widths */
+.nameInputColumn, .ccColumn, .planningColumn, .riskColumn,
+.engineeringColumn, .releaseColumn, .ceColumn, .totalColumn, .deleteColumn {
+    width: 10%; /* Adjust based on your needs */
+}
+
+.engineeringColumn, .releaseColumn {
+    width: 15%; /* Adjust based on your needs */
+}
+

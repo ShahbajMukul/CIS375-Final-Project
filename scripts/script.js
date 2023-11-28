@@ -15,47 +15,38 @@ function addRow() {
           cell.className = "nameInputColumn";
           break;
         case 1:
-          cell.innerHTML = '<input type="number" step="0.01" class="ccInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
-          cell.title = "Enter a value for CC (e.g. 0.5)";
-          cell.style = "background-color: #f2f2f2;"
-          cell.className = "numberInputColumn";
-          break;
-        case 2:
-          cell.innerHTML = '<input type="number" step="0.01" class="planningInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
-          cell.title = "Enter a value for planning (e.g. 0.5)";
-          cell.style = "background-color: #f2f2f2;"
-          cell.className = "numberInputColumn";
-          break;
-        case 3:
-          cell.innerHTML = '<input type="number" step="0.01" class="riskAnalysisInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
-          cell.title = "Enter a value for Risk Analysis (e.g. 0.5)";
-          cell.style = "background-color: #f2f2f2;"
-          cell.className = "numberInputColumn";
-          break;
+          cell.className = "ccColumn";
+            break;
+            case 2:
+              cell.className = "planningColumn";
+              break;
+          case 3:
+              cell.className = "riskColumn";
+              break;
         case 4:
           // Display inputs for Analysis columns
-          cell.innerHTML = '<input type="number" step="0.01" class="analysisInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
+          cell.innerHTML = '<input type="number" step="0.01" min="0"  class="analysisInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
           cell.title = "Enter a value for Analysis (e.g. 0.5)";
           cell.style = "background-color: #f2f2f2;"
           cell.className = "numberInputColumn";
           break;
         case 5:
           // Display inputs for Design columns
-          cell.innerHTML = '<input type="number" step="0.01" class="designInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
+          cell.innerHTML = '<input type="number" step="0.01" min="0"  class="designInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
           cell.title = "Enter a value for Design (e.g. 0.5)";
           cell.style = "background-color: #f2f2f2;"
           cell.className = "numberInputColumn";
           break;
         case 6:
           // Display inputs Code columns
-          cell.innerHTML = '<input type="number" step="0.01" class="codeInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
+          cell.innerHTML = '<input type="number" step="0.01" min="0"  class="codeInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
           cell.title = "Enter a value for Code (e.g. 0.5)";
           cell.style = "background-color: #f2f2f2;"
           cell.className = "numberInputColumn";
           break;
         case 7:
           // Display inputs for Test columns
-          cell.innerHTML = '<input type="number" step="0.01" class="testInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
+          cell.innerHTML = '<input type="number" step="0.01" min="0"  class="testInputCell" placeholder="i.e. 0.5" oninput="updateTables(this)">';
           cell.title = "Enter a value for Test (e.g. 0.5)";
           cell.style = "background-color: #f2f2f2;"
           cell.className = "numberInputColumn";
@@ -111,17 +102,14 @@ function addRow() {
 
     for (var i = 0; i < table.rows.length; i++) {
       var row = table.rows[i];
-      var inputCell1 = parseFloat(row.getElementsByClassName("ccInputCell")[0].value) || 0;
-      var inputCell2 = parseFloat(row.getElementsByClassName("planningInputCell")[0].value) || 0;
-      var inputCell3 = parseFloat(row.getElementsByClassName("riskAnalysisInputCell")[0].value) || 0;
-      var inputCell4 = parseFloat(row.getElementsByClassName("analysisInputCell")[0].value) || 0;
-      var inputCell5 = parseFloat(row.getElementsByClassName("designInputCell")[0].value) || 0;
-      var inputCell6 = parseFloat(row.getElementsByClassName("codeInputCell")[0].value) || 0;
-      var inputCell7 = parseFloat(row.getElementsByClassName("testInputCell")[0].value) || 0;
+      var inputCell1 = parseFloat(row.getElementsByClassName("analysisInputCell")[0].value) || 0;
+      var inputCell2 = parseFloat(row.getElementsByClassName("designInputCell")[0].value) || 0;
+      var inputCell3 = parseFloat(row.getElementsByClassName("codeInputCell")[0].value) || 0;
+      var inputCell4 = parseFloat(row.getElementsByClassName("testInputCell")[0].value) || 0;
       var total = 0;
 
       // Summing up values from different columns
-      total = inputCell1 + inputCell2 + inputCell3 + inputCell4 + inputCell5 + inputCell6 + inputCell7;
+      total = inputCell1 + inputCell2 + inputCell3 + inputCell4;
 
       // Displaying the total in the respective cell of the current row
     var totalCell = row.getElementsByClassName("totalCell")[0];
@@ -131,108 +119,80 @@ function addRow() {
 
   function calculateColumnTotal() {
     var inputTable = document.getElementById("inputTable");
-    var ccCol = inputTable.getElementsByClassName("ccInputCell");
-    var planningCol = inputTable.getElementsByClassName("planningInputCell");
-    var riskAnalysisCol = inputTable.getElementsByClassName("riskAnalysisInputCell");
     var analysisCol = inputTable.getElementsByClassName("analysisInputCell");
     var designCol = inputTable.getElementsByClassName("designInputCell");
     var codeCol = inputTable.getElementsByClassName("codeInputCell");
     var testCol = inputTable.getElementsByClassName("testInputCell");
     
-    var ccTotal = 0, planningTotal = 0, riskAnalysisTotal = 0, analysisTotal = 0, designTotal = 0, codeTotal = 0, testTotal = 0;
+    var analysisTotal = 0, designTotal = 0, codeTotal = 0, testTotal = 0;
 
-    // Summing up values from all rows in the current column
-    for (var i = 0; i < ccCol.length; i++) {
-      ccTotal += parseFloat(ccCol[i].value) || 0;
-    }
-
-    for (var i = 0; i < planningCol.length; i++) {
-      planningTotal += parseFloat(planningCol[i].value) || 0;
-    }
-
-    for (var i = 0; i < riskAnalysisCol.length; i++) {
-      riskAnalysisTotal += parseFloat(riskAnalysisCol[i].value) || 0;
-    }
-
+    // Summing up values from all rows in the current column for Engineering and Release phases
     for (var i = 0; i < analysisCol.length; i++) {
-      analysisTotal += parseFloat(analysisCol[i].value) || 0;
+        analysisTotal += parseFloat(analysisCol[i].value) || 0;
     }
-
     for (var i = 0; i < designCol.length; i++) {
-      designTotal += parseFloat(designCol[i].value) || 0;
+        designTotal += parseFloat(designCol[i].value) || 0;
     }
-
     for (var i = 0; i < codeCol.length; i++) {
-      codeTotal += parseFloat(codeCol[i].value) || 0;
+        codeTotal += parseFloat(codeCol[i].value) || 0;
     }
-
     for (var i = 0; i < testCol.length; i++) {
-      testTotal += parseFloat(testCol[i].value) || 0;
+        testTotal += parseFloat(testCol[i].value) || 0;
     }
 
     // Displaying the total in the last row of the current column
-    var ccCell = document.getElementById("ccTotalCell");
-    ccCell.innerHTML = ccTotal.toFixed(2);
+    document.getElementById("analysisTotalCell").innerHTML = analysisTotal.toFixed(2);
+    document.getElementById("designTotalCell").innerHTML = designTotal.toFixed(2);
+    document.getElementById("codeTotalCell").innerHTML = codeTotal.toFixed(2);
+    document.getElementById("testTotalCell").innerHTML = testTotal.toFixed(2);
+}
 
-    var planningCell = document.getElementById("planningTotalCell");
-    planningCell.innerHTML = planningTotal.toFixed(2);
+function updateTotalsRow(){
+    var ccTotal = parseFloat(document.getElementById("ccInputCell").value) || 0;
+    var planningTotal = parseFloat(document.getElementById("planningInputCell").value) || 0;
+    var riskAnalysisTotal = parseFloat(document.getElementById("riskAnalysisInputCell").value) || 0;
 
-    var riskAnalysisCell = document.getElementById("riskAnalysisTotalCell");
-    riskAnalysisCell.innerHTML = riskAnalysisTotal.toFixed(2);
-
-    var analysisCell = document.getElementById("analysisTotalCell");
-    analysisCell.innerHTML = analysisTotal.toFixed(2);
-
-    var designCell = document.getElementById("designTotalCell");
-    designCell.innerHTML = designTotal.toFixed(2);
-
-    var codeCell = document.getElementById("codeTotalCell");
-    codeCell.innerHTML = codeTotal.toFixed(2);
-
-    var testCell = document.getElementById("testTotalCell");
-    testCell.innerHTML = testTotal.toFixed(2);
-  }
-
-  function updateTotalsRow(){
-    // Use the totals from the calculateColumnTotal function
-    var ccTotal = parseFloat(document.getElementById("ccTotalCell").innerHTML) || 0;
-    var planningTotal = parseFloat(document.getElementById("planningTotalCell").innerHTML) || 0;
-    var riskAnalysisTotal = parseFloat(document.getElementById("riskAnalysisTotalCell").innerHTML) || 0;
     var analysisTotal = parseFloat(document.getElementById("analysisTotalCell").innerHTML) || 0;
     var designTotal = parseFloat(document.getElementById("designTotalCell").innerHTML) || 0;
     var codeTotal = parseFloat(document.getElementById("codeTotalCell").innerHTML) || 0;
     var testTotal = parseFloat(document.getElementById("testTotalCell").innerHTML) || 0;
 
-    // Summing up values from all columns
     var total = ccTotal + planningTotal + riskAnalysisTotal + analysisTotal + designTotal + codeTotal + testTotal;
     
-    // Displaying the total in the last cell of the current row
-    var totalCell = document.getElementById("totalsTotalCell");
-    totalCell.innerHTML = total.toFixed(2);
-    calculateCost(); // auto calc
+    document.getElementById("totalsTotalCell").innerHTML = total.toFixed(2);
+    calculateCost();
+    calculatePercentEffort();
 }
 
 
 function calculatePercentEffort() {
-  // Retrieve totals from total cells
-  var ccTotal = parseFloat(document.getElementById("ccTotalCell").innerHTML) || 0;
-  var planningTotal = parseFloat(document.getElementById("planningTotalCell").innerHTML) || 0;
-  var riskAnalysisTotal = parseFloat(document.getElementById("riskAnalysisTotalCell").innerHTML) || 0;
-  var analysisTotal = parseFloat(document.getElementById("analysisTotalCell").innerHTML) || 0;
-  var designTotal = parseFloat(document.getElementById("designTotalCell").innerHTML) || 0;
-  var codeTotal = parseFloat(document.getElementById("codeTotalCell").innerHTML) || 0;
-  var testTotal = parseFloat(document.getElementById("testTotalCell").innerHTML) || 0;
-  var totalValue = ccTotal + planningTotal + riskAnalysisTotal + analysisTotal + designTotal + codeTotal + testTotal;
+  // Retrieve the total value of all activities
+  var totalValue = parseFloat(document.getElementById("totalsTotalCell").innerHTML) || 0;
 
-  // Calculate and display percent effort for each column
+  // Calculate and display percent effort for CC, Planning, Risk Analysis
+  var ccTotal = parseFloat(document.getElementById("ccInputCell").value) || 0;
   displayPercentEffort("ccPercentCell", ccTotal, totalValue);
+
+  var planningTotal = parseFloat(document.getElementById("planningInputCell").value) || 0;
   displayPercentEffort("planningPercentCell", planningTotal, totalValue);
+
+  var riskAnalysisTotal = parseFloat(document.getElementById("riskAnalysisInputCell").value) || 0;
   displayPercentEffort("riskAnalysisPercentCell", riskAnalysisTotal, totalValue);
+
+  // Calculate and display percent effort for Engineering and Release phases
+  var analysisTotal = parseFloat(document.getElementById("analysisTotalCell").innerHTML) || 0;
   displayPercentEffort("analysisPercentCell", analysisTotal, totalValue);
+
+  var designTotal = parseFloat(document.getElementById("designTotalCell").innerHTML) || 0;
   displayPercentEffort("designPercentCell", designTotal, totalValue);
+
+  var codeTotal = parseFloat(document.getElementById("codeTotalCell").innerHTML) || 0;
   displayPercentEffort("codePercentCell", codeTotal, totalValue);
+
+  var testTotal = parseFloat(document.getElementById("testTotalCell").innerHTML) || 0;
   displayPercentEffort("testPercentCell", testTotal, totalValue);
 }
+
 
 function displayPercentEffort(cellId, value, total) {
   var percent = (value / total * 100) || 0;
@@ -241,47 +201,49 @@ function displayPercentEffort(cellId, value, total) {
 
 
 function calculateCost() {
-  // Retrieve total values from total cells
-  var ccTotal = parseFloat(document.getElementById("ccTotalCell").innerHTML) || 0;
-  var planningTotal = parseFloat(document.getElementById("planningTotalCell").innerHTML) || 0;
-  var riskAnalysisTotal = parseFloat(document.getElementById("riskAnalysisTotalCell").innerHTML) || 0;
-  var analysisTotal = parseFloat(document.getElementById("analysisTotalCell").innerHTML) || 0;
-  var designTotal = parseFloat(document.getElementById("designTotalCell").innerHTML) || 0;
-  var codeTotal = parseFloat(document.getElementById("codeTotalCell").innerHTML) || 0;
-  var testTotal = parseFloat(document.getElementById("testTotalCell").innerHTML) || 0;
+  var costRate = parseFloat(document.getElementById("costInputCell").value) || 0;
 
-  // Retrieve the cost rate
-  var cost = parseFloat(document.getElementById("costInputCell").value) || 0;
+  var ccTotal = calculateAndDisplayCost('ccInputCell', 'ccCostCell', costRate);
+  var planningTotal = calculateAndDisplayCost('planningInputCell', 'planningCostCell', costRate);
+  var riskAnalysisTotal = calculateAndDisplayCost('riskAnalysisInputCell', 'riskAnalysisCostCell', costRate);
+  var analysisTotal = calculateAndDisplayCost('analysisTotalCell', 'analysisCostCell', costRate);
+  var designTotal = calculateAndDisplayCost('designTotalCell', 'designCostCell', costRate);
+  var codeTotal = calculateAndDisplayCost('codeTotalCell', 'codeCostCell', costRate);
+  var testTotal = calculateAndDisplayCost('testTotalCell', 'testCostCell', costRate);
 
-  // Calculate and display cost for each column
-  displayCost("ccCostCell", ccTotal, cost);
-  displayCost("planningCostCell", planningTotal, cost);
-  displayCost("riskAnalysisCostCell", riskAnalysisTotal, cost);
-  displayCost("analysisCostCell", analysisTotal, cost);
-  displayCost("designCostCell", designTotal, cost);
-  displayCost("codeCostCell", codeTotal, cost);
-  displayCost("testCostCell", testTotal, cost);
-
-  // Calculate and display total cost
-  var totalCost = (ccTotal + planningTotal + riskAnalysisTotal + analysisTotal + designTotal + codeTotal + testTotal) * cost;
+  var totalCost = ccTotal + planningTotal + riskAnalysisTotal + analysisTotal + designTotal + codeTotal + testTotal;
   document.getElementById("totalCostCell").innerHTML = "$" + totalCost.toFixed(2);
 }
 
-function displayCost(cellId, value, costRate) {
+
+function calculateAndDisplayCost(inputCellId, outputCellId, costRate) {
+  // Get the value from the input cell, calculate the cost, and display it
+  var value = parseFloat(document.getElementById(inputCellId).innerHTML) || parseFloat(document.getElementById(inputCellId).value) || 0;
   var cost = value * costRate;
-  document.getElementById(cellId).innerHTML = "$" + cost.toFixed(2);
+  document.getElementById(outputCellId).innerHTML = "$" + cost.toFixed(2);
+  return cost; // Return the cost for summing in calculateCost
 }
 
   function updateTables(){
+    // negative prevention
+    var inputs = document.querySelectorAll('input[type="number"]');
+    inputs.forEach(function (input) {
+      if (parseFloat(input.value) < 0) {
+        input.value = '0'; // Reset negative values to 0
+      }
+    });
+
+
     calculateRowTotal();
     calculateColumnTotal();
     updateTotalsRow();
     calculatePercentEffort();
+
   }
 
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("costInputCell").value = "";
-
     addRow();
+    updateTables();
   });
 

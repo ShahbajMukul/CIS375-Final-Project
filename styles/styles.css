@@ -31,8 +31,7 @@ header img {
 
 #addRowBtn{
     background-color: rgb(58, 197, 123);
-    cursor: pointer;
-    margin-bottom: 35px; 
+    cursor: pointer; 
 }
 
 #addRowBtn:hover {
@@ -53,11 +52,22 @@ header h3 {
     color: black;
 }
 
-.button-container {
+.left-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 20px;
+}
+
+.info-container {
+    padding: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 .labor-rate-box {

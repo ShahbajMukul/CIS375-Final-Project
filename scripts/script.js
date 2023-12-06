@@ -227,8 +227,8 @@ function calculateAndDisplayCost(inputCellId, outputCellId, costRate) {
 function updateTables() {
   // labor rate limits
   var laborRateInput = document.getElementById('costInputCell');
-  if (laborRateInput.value > 1000) {
-    laborRateInput.value = 1000; 
+  if (laborRateInput.value > 100000) {
+    laborRateInput.value = 100000; 
   }
 
   

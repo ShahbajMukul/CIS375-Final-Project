@@ -9,7 +9,8 @@
 </head>
 <body>
     <header>
-        <img src="img/umdearborn_horizontal_white_nobg.png" alt="UM-Dearborn Logo">
+        <img id="umd-logo" src="img/umdearborn_horizontal_white_nobg.png" alt="UM-Dearborn Logo">
+        <img id="umd-logo-print" src="img/umdearborn-print.png" alt="UM-Dearborn Logo">
         <h3>Process-Based Estimation Assistant</h3>
     </header>
     <div class="info-container">
@@ -24,7 +25,7 @@
           <div class="label">Labor Rate</div>
           <div class="input-cell">
             <label>$</label>
-            <input type="number" id="costInputCell" placeholder="Labor Rate" min="1" max="1000" oninput="updateTables()">
+            <input type="number" id="costInputCell" placeholder="Labor Rate" min="0" max="100000" oninput="updateTables()">
           </div>
         </div>
 
@@ -127,7 +128,7 @@
                 <td class="numberInputColumn" id="codePercentCell"></td>
                 <td class="numberInputColumn" id="testPercentCell"></td>
                 <td class="ceColumn"></td>
-                <td class="totalColumn" id="totalPercent">100%</td>
+                <td class="totalColumn" id="totalPercent"></td>
               </tr>
               <tr>
                 <td class="nameInputColumn">Cost</td>

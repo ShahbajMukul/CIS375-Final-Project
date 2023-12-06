@@ -229,9 +229,9 @@ function updateTables() {
   var laborRateInput = document.getElementById('costInputCell');
   if (laborRateInput.value > 1000) {
     laborRateInput.value = 1000; 
-  } else if (laborRateInput.value < 1) {
-    laborRateInput.value = 1; 
   }
+
+  
     // negative prevention
     var inputs = document.querySelectorAll('input[type="number"]');
     inputs.forEach(function (input) {

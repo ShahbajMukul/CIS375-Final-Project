@@ -15,21 +15,19 @@
     <div class="info-container">
       <h2>What is this?</h2>
       <p>This tool is designed to help you estimate the cost of a software project based on the process used to develop it.</p>
-      <p>For more information on process-based estimation, please see <a href="https://www.1000sourcecodes.com/2012/05/software-engineerig-process-based.html"></a>Software Engineering Process Based Estimation</p>
+      <p>For more information on process-based estimation, please see <a href="https://www.1000sourcecodes.com/2012/05/software-engineerig-process-based.html">Software Engineering Process Based Estimation</a>.</p>
     </div>
+    
     <div class="flex-container">
       <div class="left-container">
         <div class="labor-rate-box">
           <div class="label">Labor Rate</div>
           <div class="input-cell">
             <label>$</label>
-            <input type="number" id="costInputCell" placeholder="Labor Rate">
+            <input type="number" id="costInputCell" placeholder="Labor Rate" min="1" max="1000" oninput="updateTables()">
           </div>
         </div>
-        <div class="button-container">
-        <button id="addRowBtn" onclick="addRow()">Add Row</button>
-        <button id="printBtn" onclick="window.print()">Print</button>
-      </div>
+
 
       </div>
       <div class="table-container">
@@ -43,7 +41,7 @@
             <col class="releaseColumn" span="2">
             <col class="ceColumn">
             <col class="totalColumn">
-            <col class="deleteColumn">
+            <col class="buttonColumn">
             <col>
         </colgroup>
           <thead>
@@ -56,7 +54,7 @@
                 <td class="col5" colspan="2">RELEASE</td>
                 <td class="ceColumn">CE</td>
                 <td class="totalColumn" id="totals-header">TOTALS</td>
-                <td class="deleteColumn">Delete</td>
+                <td class="buttonColumn">Buttons</td>
               </tr>
           </thead>
           <tbody>
@@ -71,7 +69,7 @@
                 <td class="numberInputColumn">Test</td>
                 <td>-</td>
                 <td>-</td>
-                <td class="deleteColumn"><button id="clearRowsBtn" onclick="clearRows()">Delete All Rows</button></td>
+                <td class="buttonColumn"><button id="clearRowsBtn" onclick="clearRows()">Delete All Rows</button></td>
               </tr>
 
           </tbody>
@@ -86,7 +84,7 @@
             <col class="releaseColumn" span="2">
             <col class="ceColumn">
             <col class="totalColumn">
-            <col class="deleteColumn">
+            <col class="buttonColumn">
             <col>
 
           <tbody>
@@ -103,7 +101,7 @@
             <col class="releaseColumn" span="2">
             <col class="ceColumn">
             <col class="totalColumn">
-            <col class="deleteColumn">
+            <col class="buttonColumn">
           <tbody>
               <tr>
                 <td class="nameInputColumn">totals</td>
@@ -142,6 +140,12 @@
                 <td class="numberInputColumn" id="testCostCell"></td>
                 <td class="ceColumn"></td>
                 <td class="totalColumn" id="totalCostCell"></td>
+                <td class="buttonColumn" id="buttonCell">
+                  <div class="button-container">
+                    <button id="addRowBtn" onclick="addRow()">Add Row</button> 
+                    <button id="printBtn" onclick="window.print()">Print</button> 
+                    </div>
+                </td>
               </tr>
           </tbody>
           </table>

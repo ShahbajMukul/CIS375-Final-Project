@@ -224,7 +224,14 @@ function calculateAndDisplayCost(inputCellId, outputCellId, costRate) {
   return cost; // Return the cost for summing in calculateCost
 }
 
-  function updateTables(){
+function updateTables() {
+  // labor rate limits
+  var laborRateInput = document.getElementById('costInputCell');
+  if (laborRateInput.value > 1000) {
+    laborRateInput.value = 1000; 
+  } else if (laborRateInput.value < 1) {
+    laborRateInput.value = 1; 
+  }
     // negative prevention
     var inputs = document.querySelectorAll('input[type="number"]');
     inputs.forEach(function (input) {
@@ -232,7 +239,6 @@ function calculateAndDisplayCost(inputCellId, outputCellId, costRate) {
         input.value = '0'; // Reset negative values to 0
       }
     });
-
 
     calculateRowTotal();
     calculateColumnTotal();

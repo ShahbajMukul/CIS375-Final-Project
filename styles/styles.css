@@ -20,7 +20,7 @@ header img {
 
 
 #clearRowsBtn, #deleteBtn{
-    background-color: rgb(197, 58, 58);
+    background-color: #dc3545;
     color: white;
     padding: 5px 10px; 
     border: none;
@@ -30,7 +30,7 @@ header img {
 
 
 #addRowBtn{
-    background-color: rgb(58, 197, 123);
+    background-color: #28a745;
     cursor: pointer; 
 }
 
@@ -47,7 +47,7 @@ footer {
     margin-top: auto;
 }
 header h3 {
-    background-color: #FFCB05;
+    background-color: #ffc107;
     padding: 10px;
     color: black;
 }
@@ -65,7 +65,7 @@ header h3 {
 
 .button-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
 }
@@ -115,11 +115,11 @@ table {
 
 
 input[type="text"], input[type="number"] {
-    max-width: 95%; /*need the input field INSIDE the cell :)*/
+    max-width: 95%; 
     box-sizing: border-box;
     margin: 0; 
     padding: 4px; 
-    border: 1px solid #ccc;
+    border: 1px solid #ced4da;
     border-radius: 4px;
 }
 
@@ -158,7 +158,7 @@ th, td {
 }
 
 #totals-header {
-  background-color: lightcoral;
+  background-color: #17a2b8;
 }
 
 .table-container {
@@ -173,7 +173,7 @@ button {
 
 
 .nameInputColumn, .ccColumn, .planningColumn, .riskColumn,
-.engineeringColumn, .releaseColumn, .ceColumn, .totalColumn, .deleteColumn {
+.engineeringColumn, .releaseColumn, .ceColumn, .totalColumn, .buttonColumn {
     width: 10%; 
 }
 

@@ -1,0 +1,57 @@
+@media print {
+    @page{
+        size: landscape;
+    }
+   .info-container {
+    display: none;
+   }
+   #printBtn{
+    display: none;
+   }
+   #addRowBtn{
+    display: none;
+   }
+   .deleteColumn{
+    display: none;
+   }
+   #deleteBtn{
+    display: none;
+   }
+   #clearRowsBtn{
+    display: none;
+   }
+   .flex-container{
+    display: flex;
+    flex-direction: column;
+   }
+   .table-container{
+    font-size: 70%;
+   }
+   #ccInputCell{
+    font-size: 70%;
+   }
+   #planningInputCell{
+    font-size: 70%;
+   }
+   #riskAnalysisInputCell{
+    font-size: 70%;
+   }
+
+   .analysisInputCell{
+    font-size: 70%;
+   }
+   .designInputCell{
+    font-size: 70%;
+   }
+   .codeInputCell{
+    font-size: 70%;
+   }
+   .testInputCell{
+    font-size: 70%;
+   }
+   .nameInputCell{
+    font-size: 70%;
+   }
+
+    /* styles to hide elements on the page while printing */
+}

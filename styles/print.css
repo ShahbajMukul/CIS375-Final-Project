@@ -1,17 +1,21 @@
 @media print {
     @page{
-        size: landscape;
-        margin: 0cm 2.5cm;
-        padding: 10cm;
+        size: legal landscape;
+        margin: 0;
     }
     table {
         border-collapse: collapse;
-        width: 100%;
     }
     th, td {
         border: 1px solid black;
     }
    .info-container {
+    display: none;
+   }
+   .help-container {
+    display: none;
+   }
+   footer {
     display: none;
    }
    #printBtn{
@@ -29,13 +33,6 @@
    #clearRowsBtn{
     display: none;
    }
-   #umd-logo{
-    display: none;
-   }
-    #umd-logo-print{
-     display: block;
-     width: 80%;
-    }
     .buttonColumn {
         display: none;
     }

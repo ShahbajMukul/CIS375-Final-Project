@@ -9,7 +9,7 @@ function addRow() {
       switch (i) {
         case 0:
           // Allow the user to enter a function name
-          cell.innerHTML = '<input type="text" class="nameInputCell" placeholder="function name" >';
+          cell.innerHTML = '<input type="text" class="nameInputCell" placeholder="Function name" >';
           cell.title = "Enter a function name";
           cell.style = "background-color: #f2f2f2;"
           cell.className = "nameInputColumn";
@@ -61,7 +61,7 @@ function addRow() {
           cell.className = "totalColumn";
           break;
         case 10:
-          cell.innerHTML = '<button id="deleteBtn" onclick="deleteRow(this)">Delete</button>';
+          cell.innerHTML = '<button class="button-27" id="deleteBtn" onclick="deleteRow(this)">Delete</button>';
           break;
         default:
           // Display placeholders for other columns
@@ -95,6 +95,8 @@ function addRow() {
     while (inputTable.rows.length > 0) {
       inputTable.deleteRow(0);
     }
+    addRow();
+    updateTables();
   }
 
   function calculateRowTotal() {

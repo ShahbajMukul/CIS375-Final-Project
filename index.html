@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" type="text/css" media="print" href="styles/print.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <title>Process-Based Estimation Assistant</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
     </header>
     <div class="info-container">
       <h2>What is this?</h2>
-      <p>This tool is designed to help you estimate the cost of a software project based on the process used to develop it.</p>
+      <p>This tool is designed to help you estimate the cost of a software project based on the process used to develop it. You will breakdown your software project into functions based on the various tasks in the table. For each function you will input an estimated effort in person-months to complete the task. You will also input an average labor rate for 1 person-months for your team. Our calculator will take your inputs and determine the total effort for each task and percent of total effort that task will take, but more importantly, it will calculate the total estimated cost and person-months for the software project.</p>
       <p>For more information on process-based estimation, please see <a href="https://www.1000sourcecodes.com/2012/05/software-engineerig-process-based.html">Software Engineering Process Based Estimation</a>.</p>
     </div>
     
@@ -25,7 +26,7 @@
           <div class="label">Labor Rate</div>
           <div class="input-cell">
             <label>$</label>
-            <input type="number" id="costInputCell" placeholder="Labor Rate" min="0" max="100000" oninput="updateTables()">
+            <input type="number" id="costInputCell" title="Enter labor rate in person-months." placeholder="Labor Rate" min="0" max="100000" oninput="updateTables()">
           </div>
         </div>
 
@@ -55,7 +56,7 @@
                 <td class="col5" colspan="2">RELEASE</td>
                 <td class="ceColumn">CE</td>
                 <td class="totalColumn" id="totals-header">TOTALS</td>
-                <td class="buttonColumn">Buttons</td>
+                <td class="buttonColumn">BUTTONS</td>
               </tr>
           </thead>
           <tbody>
@@ -70,7 +71,7 @@
                 <td class="numberInputColumn">Test</td>
                 <td>-</td>
                 <td>-</td>
-                <td class="buttonColumn"><button id="clearRowsBtn" onclick="clearRows()">Delete All Rows</button></td>
+                <td class="buttonColumn"><button class="button-27" id="clearRowsBtn" onclick="clearRows()">Delete All Rows</button></td>
               </tr>
 
           </tbody>
@@ -105,7 +106,7 @@
             <col class="buttonColumn">
           <tbody>
               <tr>
-                <td class="nameInputColumn">totals</td>
+                <td class="nameInputColumn">Totals</td>
                 
                 <td class="ccColumn"><input type="number" step="0.01" min="0" id="ccInputCell" title="Enter a value for Customer Care (e.g. 0.5)" placeholder="i.e. 0.5" oninput="updateTables(this)"></td>
                 <td class="planningColumn"><input type="number" step="0.01"  min="0" id="planningInputCell" title="Enter a value for Planning (e.g. 0.5)" placeholder="i.e. 0.5" oninput="updateTables(this)"></td>
@@ -119,7 +120,7 @@
                 <td class="totalColumn" id="totalsTotalCell"></td>
               </tr>
               <tr>
-                <td class="nameInputColumn">% effort</td>
+                <td class="nameInputColumn">% Effort</td>
                 <td class="nameInputColumn" id="ccPercentCell"></td>
                 <td class="nameInputColumn" id="planningPercentCell"></td>
                 <td class="nameInputColumn" id="riskAnalysisPercentCell"></td>
@@ -143,14 +144,18 @@
                 <td class="totalColumn" id="totalCostCell"></td>
                 <td class="buttonColumn" id="buttonCell">
                   <div class="button-container">
-                    <button id="addRowBtn" onclick="addRow()">Add Row</button> 
-                    <button id="printBtn" onclick="window.print()">Print</button> 
+                    <button class="button-27" id="addRowBtn" onclick="addRow()">Add Row</button> 
+                    <button class="button-27" id="printBtn" onclick="window.print()">Print</button> 
                     </div>
                 </td>
               </tr>
           </tbody>
           </table>
       </div>
+    </div>
+    <div class="help-container">
+      <h2 id="help-title">Need help?</h2>
+      <p id="help-text">Feel free to <a href="mailto:alichy@umich.edu?subject=Process-Based Estimation Assistant Help">contact us!</a></p>
     </div>
     <footer>
         <p>Created by Brandon Bailey, Ali Chowdhury, Darsh Patel, Shahbaj Mukul, and Andrew Schwartz, Fall 2023 &copy</p>
